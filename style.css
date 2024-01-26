@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+label{
+    display: block;
+}
+input{
+    display: block;
+    width: 100%;
+    background-color:white;
+    opacity: 0.5;
+    outline: none;
+    padding: 5px 3px;
+}
+.rigisterform{
+    width: 300px;
+    background-color: blueviolet;
+    margin: 200px auto 0;
+    padding: 20px 30px;
+    border-radius: 8px; 
+}
+
+.rigisterform h1{ 
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+.rigisterform button{
+    display: block;
+    width: 150px;
+    margin: 15px auto 0;
+    background-color: cadetblue;
+    border: 2px solid cadetblue;
+    color: rgb(238, 238, 238);
+    cursor: pointer;
+}
