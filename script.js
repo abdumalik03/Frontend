@@ -1,29 +1,60 @@
-// Инпуты
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.register-form');
 
-let userName=document.querySelector(".userName")
-let lastName=document.querySelector(".lastName")
-let email=document.querySelector(".email")
-let password1=document.querySelectorAll(".password")[0]
-let password2=document.querySelectorAll(".password")[1]
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
 
-// Кнопки
+        const userName = document.getElementById('userName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-let btn = document.querySelector(".btn")
+        if (!userName || !lastName || !email || !newPassword || !confirmPassword) {
+            alert('Пожалуйста, заполните все поля.');
+            return;
+        }
 
-btn.addEventListener("click" , clickMe)
+        if (!isValidEmail(email)) {
+            alert('Пожалуйста, введите корректный адрес электронной почты.');
+            return;
+        }
 
-let userNameReg = /^[A-Za-zА-Яа-я\- ]*[^0-9][A-Za-zА-Яа-я\- ]*$/;
-let userEmailReg= /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
-let userPasswordReg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
+        if (!isValidName(userName) || !isValidName(lastName)) {
+            alert('Имя и фамилия должны содержать только буквы и быть не пустыми.');
+            return;
+        }
 
-function clickMe(event){
-    event.preventDefault(userPasswordReg,userName)
-    validate(userPasswordReg,lastName)
-}
+        if (newPassword.length < 8) {
+            alert('Пароль должен содержать не менее 8 символов.');
+            return;
+        }
 
-function validate(userReg,userValue){
-    
-    if(!userReg.test(userValue.value)){
-        userValue.classList.add("error")
+        if (!/\d/.test(newPassword)) {
+            alert('Пароль должен содержать хотя бы одну цифру.');
+            return;
+        }
+
+        if (!/[A-Z]/.test(newPassword)) {
+            alert('Пароль должен содержать хотя бы одну букву верхнего регистра.');
+            return;
+        }
+
+ 
+        if (newPassword !== confirmPassword) {
+            alert('Пароли не совпадают. Пожалуйста, повторите ввод пароля.');
+            return;
+        }
+
+        alert('Регистрация успешна!');
+        form.submit();
+    });
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-}
+
+    function isValidName(name) {
+        return /^[a-zA-Z]+$/.test(name);
+    }
+});

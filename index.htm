@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <div class="rigisterform">
+    <div class="register-form">
         <h1>Регистрация</h1>
         <form action="">
-               <label for="">
-                   Ваше имя
-                   <input type="text" class="userName">
-               </label>
-               <label for="">
+            <label for="userName">
+                Ваше имя
+                <input type="text" id="userName" class="userName">
+            </label>
+            <label for="lastName">
                 Ваша Фамилия
-                <input type="text" class="lastName">
+                <input type="text" id="lastName" class="lastName">
             </label>
-            <label for="">
-                Ваше почта
-                <input type="text" class="email">
+            <label for="email">
+                Ваша почта
+                <input type="text" id="email" class="email">
             </label>
-            <label for="">
+            <label for="newPassword">
                 Новый пароль
-                <input type="text" class="password">
+                <input type="password" id="newPassword" class="newPassword">
             </label>
-            <label for="">
+            <label for="confirmPassword">
                 Повторить пароль
-                <input type="text" class="password">
+                <input type="password" id="confirmPassword" class="confirmPassword">
             </label>
-<button>Зарегистрировать</button>
+            <button type="submit">Зарегистрировать</button>
         </form>
     </div>
     <script src="./script.js"></script>
 </body>
+
 </html>
